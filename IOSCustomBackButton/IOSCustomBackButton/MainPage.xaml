@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="IOSCustomBackButton.MainPage"
+             BackgroundColor="DarkBlue"
+             NavigationPage.HasNavigationBar="False"
+             x:Name="Root">
+
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- OUTER LAYER "A" - BACKGROUND PHOTO & CUSTOM TITLE BAR WITH BACK BUTTON -->
+        <VerticalStackLayout Grid.Row="0" Grid.Column="0" VerticalOptions="Fill" Padding="0" Margin="0">
+
+            <!-- Custom Title Area - Title Bar First, Then Background Photo -->
+            <VerticalStackLayout Padding="0" Margin="0,0" BackgroundColor="Black" VerticalOptions="Start" HeightRequest="56">
+
+                <!-- HORIZONTAL GRID IN 3 SECTIONS -->
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="54"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="54"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Data -->
+
+                    <!-- Column 0: Back Button space -->
+                    <VerticalStackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="Transparent">
+                        <ImageButton x:Name="btnCustomBackButtonAndroid" Source="backbuttonicon.png" Margin="10,6,0,0"
+                             WidthRequest="40" HeightRequest="40" HorizontalOptions="Start"
+                             Clicked="btnCustomBackButton_Clicked"/>
+                    </VerticalStackLayout>
+
+                    <!-- Column 1: Page Title -->
+                    <VerticalStackLayout Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent">
+                        <Label x:Name="CustomTitleLabel" HeightRequest="54" Text="(your title here)" FontFamily="OpenSansSemibold"
+                               VerticalTextAlignment="Center" VerticalOptions="End" BackgroundColor="Transparent"
+                               FontSize="22" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0" />
+                    </VerticalStackLayout>
+
+                    <!-- Column 2: Dummy space -->
+                    <VerticalStackLayout Grid.Row="0" Grid.Column="2" BackgroundColor="Transparent">
+                    </VerticalStackLayout>
+
+                    
+                </Grid>
+
+            </VerticalStackLayout>
+
+            <!-- If you wish to have a background image for your page, you can comment this section in. Just
+                 specify a file name from the /Images folder.
+
+            <Image IsVisible="True" x:Name="imgBackgroundPhoto" Aspect="AspectFill" VerticalOptions="FillAndExpand" 
+                   Style="{StaticResource ScreenBkgrImage}" />
+            -->
+
+        </VerticalStackLayout>
+
+
+        <!-- OUTER LAYER "B" - ACTUAL PAGE CONTENT -->
+        <VerticalStackLayout Grid.Row="0" Grid.Column="0" VerticalOptions="CenterAndExpand" Margin="20">
+
+            <!--*********************-->
+            <!-- ACTUAL CONTENT HERE -->
+            <!--*********************-->
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Data -->
+
+                <VerticalStackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="Transparent" >
+                    <Label Text="Name" TextColor="White" HorizontalTextAlignment="End" Margin="0,0,10,0" 
+                           VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent">
+                    <Entry Placeholder="(name)" HorizontalOptions="FillAndExpand" BackgroundColor="Turquoise" 
+                           TextColor="Black"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="1" Grid.Column="0" BackgroundColor="Transparent" >
+                    <Label Text="Address" TextColor="White" HorizontalTextAlignment="End" Margin="0,0,10,0" 
+                          VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent">
+                    <Entry Placeholder="(address)" HorizontalOptions="FillAndExpand" BackgroundColor="Turquoise" 
+                          TextColor="Black"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="2" Grid.Column="0" BackgroundColor="Transparent" >
+                    <Label Text="City/State/Zip" TextColor="White" HorizontalTextAlignment="End" Margin="0,0,10,0" 
+                          VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Row="2" Grid.Column="1" BackgroundColor="Transparent">
+                    <Entry Placeholder="(city, state, zip)" HorizontalOptions="FillAndExpand" BackgroundColor="Turquoise" 
+                          TextColor="Black"/>
+                </VerticalStackLayout>
+
+            </Grid>
+
+        </VerticalStackLayout>
+
+    </Grid>
+
+</ContentPage>
